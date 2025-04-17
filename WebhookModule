@@ -46,33 +46,3 @@ end
 
 return webhookMod
 
---[[
-
-Example:
-
-local embed = {
-    ["title"] = "This is an embed",
-    ["description"] = "Embed description i guess",
-    ["color"] = 65280,
-    ["fields"] = {
-        {
-            ["name"] = "Some field name here", -- field 1
-            ["value"] = "Some field text here"
-        },
-        {
-            ["name"] = "Some field name here", -- field 2
-            ["value"] = "Some field text here"
-        }
-    },
-    ["footer"] = {
-        ["text"] = "silly footer"
-    }
-}
-
-
-webModule:Post("webhook url here!" , "hey")
-
-webModule:EmbedPost("webhook url here!" , embed)    -- Discord embed
-
-
-]]
